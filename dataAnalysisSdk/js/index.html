@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>车险团购</title>
+    <link rel="stylesheet" type="text/css" href="../css/mui.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/mui.picker.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/mui.poppicker.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/swiper.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/index.css"/>
+    <script src="../js/mui.min.js"></script>
+    <script src="../js/baseurl.js?v=5" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/isloadbefor.js" type="text/javascript" charset="utf-8"></script>
+    
+	<script>
+	    	!(function () {
+			    var did2 = geturlData(window.location.search).did;
+				if(did2==107){
+					window.location.href="page.html";
+				}
+			})();
+	</script>
+    
+</head>
+<body>
+	<!--<div class="mui-content">-->
+		<div class="swiper-container swiper-container-vertical">
+			<div class="swiper-wrapper">
+	            <div class="swiper-slide swiper-no-swiping">
+	            	<div class="slide_content">
+		            	<div class="header">
+				    		<div class="h_bottom">
+				    		</div>
+					    	<a id="customer" href="#sheet1" class="customer">
+					    		<img src="../images/newindex/sever.png" class="customer_img" alt="logo" />
+					    		<span class="icon_text">客服</span>
+					    	</a>
+					    </div>
+					    <div class="main">
+					    	<div id="form" class="mui-input-group">
+					    		<div class="city">
+					    			<span class="city_text">选择投保城市:</span>
+					    			<span class="address_text">
+					    				<div class="select_city">
+						    				<span id="city">请选择</span>
+						    				<span class="selected"><img src="../images/img_7.png" class="switchcity"></span>
+					    				</div>
+					    			</span>
+					    		</div>
+						    	<div class="plate_number">
+						    		<div id="img_add" class="img_add"></div>
+						    		<img src="../images/img_14.png" class="icon_che" alt="logo" />
+						    		<span class="oncard"><span class="swicth_text">未上牌</span>
+					    				<div id="mySwitch" class="mui-switch mui-switch-mini">
+										    <div class="mui-switch-handle"></div>
+										</div>
+					    			</span>
+						    		<div class="mui-input-row plate_input div_line">
+						    			<label id="label_text" class="select_platenumber">
+						    				<span id="cityabbr">沪A</span>
+						    				<img src="../images/img_7.png" class="icon_select" alt="logo"/>
+						    			</label>
+						    			<input type="text" maxlength="6" id="platenumber" class="input_plate" onkeyup="validate(this)" onblur="inputblur(this)" name="platenumber" />
+						    		</div>
+						    	</div>
+						    	 <div class="mui-input-row input_paading">
+							        <label class="user_label">联系人姓名</label>
+							        <input type="text" maxlength="20" id="username" class="input_plate" name="username" onkeyup="validate(this)" onblur="inputblur(this)" placeholder="请输入">
+							    </div>
+							    <div class="mui-input-row input_paading">
+							        <label class="user_label">手机号码</label>
+							        <input type="number" maxlength="11" id="userphone" class="input_plate" name="userphone" onkeyup="validate(this)" onblur="inputblur(this)" placeholder="请真实填写,查报价需要">
+							    </div>
+							    <div class="div_input">
+							    	<div id="ondiv" class="div_button"></div>
+							    	<input id="submit_plate" disabled="disabled" type="button" value="为爱车投保"/>
+							    </div>
+						    </div>
+						    <div class="mui-input-row mui-checkbox mui-left clause">
+						    	<input type="checkbox" id="checkboxs" onclick="validate(this)" class="input_checkbox" checked="checked" />我接受<span class="clause_text">《车险平台协议》</span>
+						    	<span class="clause_txt">《客户告知书》</span>
+						    </div>
+					    </div>
+					    <ul class="mui-table-view seecode">
+						    <li class="mui-table-view-cell">
+						        <a href="code.html" class="mui-navigate-right">
+						        	<img src="../images/newindex/see.png" class="see_img" />
+						        	<span>查看报价</span>
+						        	<span class="seeinfo_text">收到短信后，点击此处查看报价结果</span>
+						        </a>
+						    </li>
+						</ul>
+						<div class="page_main">
+				    		<div id="nextpage" class="main_left div_hrline">
+				    			<img src="../images/newindex/product.png" class="page_img" />
+				    			<span class="page_text">产品介绍</span>
+				    		</div>
+				    		<div id="moni" class="main_right">
+				    			<img src="../images/newindex/iphone.png" class="page_img" />
+				    			<span class="page_text">模拟演示</span>
+				    		</div>
+				    	</div>
+				    	<div class="iswork">
+				    		<p class="p_ht">-合作伙伴-</p>
+					    	<div class="work_cont">
+					    		<img src="../images/newindex/1.png" class="work_img" />
+					    		<img src="../images/newindex/2.png" class="work_img" />
+					    		<img src="../images/newindex/3.png" class="work_img" />
+					    		<img src="../images/newindex/4.png" class="work_img" />
+					    	</div>
+				    	</div>
+				    </div>
+	            </div>
+	            <div class="swiper-slide">
+	            	<div class="swiper-container swiper-container-scrollbar">
+		                <div class="swiper-wrapper">
+		                    <div class="swiper-slide img-p">
+		                        <img src="../images/introduce/banner_img@2x (1).png" class="introduce_img" />
+				            	<img src="../images/introduce/banner_img@2x (2).png" class="introduce_img img_bot" />
+				            	<img src="../images/introduce/banner_img@2x (3).png" class="introduce_img img_bot" />
+				            	<img src="../images/introduce/banner_img@2x (4).png" class="introduce_img img_bot" />
+				            	<img src="../images/introduce/banner_img@2x (5).png" class="introduce_img img_bot" />
+				            	<img src="../images/introduce/banner_img@2x (6).png" class="introduce_img img_bot" />
+				            	<img src="../images/introduce/banner_img@2x (7).png" class="introduce_img img_bot" />
+				            	<img src="../images/introduce/banner_img@2x (8).png" class="introduce_img img_bot" />
+		                    </div>
+		                </div>
+		                <div class="swiper-scrollbar"></div>
+		            </div>
+		            <div class="header_absolute">
+		            	<img src="../images/introduce/indexback.png" class="header_img"/>
+		            </div>
+	            	<div class="footer_absolute">
+	            		<button id="gotobuy" class="footer_btn">立即购买</button>
+	            	</div>
+	            </div>
+	        </div>
+        </div>
+        <div id="sheet1" class="mui-popover mui-popover-bottom mui-popover-action ">
+		    <!-- 可选择菜单 -->
+		    <ul class="mui-table-view">
+		      <li class="mui-table-view-cell">
+		        <a href="#">客服中心</a>
+		      </li>
+		      <li id="worktime" class="mui-table-view-cell">
+		        <a href="tel:4006988978">4006-988-978 (工作日:9:00-18:00)</a>
+		      </li>
+		      <li id="weektime" class="mui-table-view-cell">
+		        <a href="tel:18321993307">18321993307 (其他时间)</a>
+		      </li>
+		    </ul>
+		    <!-- 取消菜单 -->
+		    <ul class="mui-table-view">
+		      <li class="mui-table-view-cell">
+		        <a href="#sheet1"><b>取消</b></a>
+		      </li>
+		    </ul>
+		</div>
+	<!--</div>-->
+	<script src="../js/mui.picker.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/mui.poppicker.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/swiper-3.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../lib/lsjcity.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.3&key=8e7c7912eef9107592ab4118bdd0fdb6"></script>
+	<script src="https://api.map.baidu.com/api?v=2.0&ak=uDZvMvzrL8ktLlckF2b1iUiKTDCeBgo2&s=1" type="text/javascript"></script>
+	<script src="../lib/plate.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/geolocation.js?v=5" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "https://hm.baidu.com/hm.js?af75db51bc6d434e5dc7ae7d86d4fe8d";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+	<script type="text/javascript">
+		if (window.app.code=="HTBX"||window.app.code=="DDZMQ"||window.app.code=="HXZY"||window.app.code=="YB-DDJT"||window.app.code=="BYJT"||window.app.code=="ZGSHJT-IMG"||window.app.code=="ZGYZJT-IMG") {
+			var imgArr = document.querySelector(".img-p").querySelectorAll("img");
+			imgArr[3].style.display = "none";
+			imgArr[5].style.display = "none";
+			document.querySelector(".p_ht").style.display = "none";
+			document.querySelector(".work_cont").style.display = "none";
+		}
+	</script>
+<!-- GrowingIO Analytics code version 2.1 -->
+<!-- Copyright 2015-2017 GrowingIO, Inc. More info available at http://www.growingio.com -->
+
+<script type='text/javascript'>
+!function(e,t,n,g,i){e[i]=e[i]||function(){(e[i].q=e[i].q||[]).push(arguments)},n=t.createElement("script"),tag=t.getElementsByTagName("script")[0],n.async=1,n.src=('https:'==document.location.protocol?'https://':'http://')+g,tag.parentNode.insertBefore(n,tag)}(window,document,"script","assets.growingio.com/2.1/gio.js","gio");
+  gio('init', 'b9f5d7ac13160610', {});
+
+//custom page code begin here
+
+//custom page code end here
+
+
+gio('send');
+</script>
+
+<!-- End GrowingIO Analytics code version: 2.1 -->
+</body>
+</html>
