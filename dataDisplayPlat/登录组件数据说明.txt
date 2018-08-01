@@ -1,0 +1,13 @@
+登录组件用于数据展台系统的鉴权
+
+前后台交互方式采用ajax
+HTTP method=post，数据保存在HTTP的body，格式为字符串化的JSON
+原生JSON对象为{
+    mailBox:String//注册邮箱
+    password:string//密码
+}
+要求后台返回字符串化的JSON
+原生JSON对象为{
+    status:Number //0-成功登录 1-邮箱账号错误 2-登录密码错误 3-服务器原因
+}
+前台登录设置超时时间为5000ms
