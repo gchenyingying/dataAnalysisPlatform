@@ -84,7 +84,7 @@ export default {
           	//构建AJAX选项
           	const options={
           		method:"post",
-          		url:"http://test.bxlsj.com/mobile/modules/car/html/dist/testUsrLogin",//url for testing mockjs
+          		url:"/testUsrLogin",//url for testing mockjs
           		data:{
           			mailBox:this.ruleForm.mailBox,
           			password:this.ruleForm.password
@@ -95,6 +95,12 @@ export default {
           			switch(data.status){
           				case 0:
           					console.log("[login] 登陆成功");
+          					//存储token
+          					localStorage.setItem("token", data.token);
+          					//设置为已登录
+          					sessionStorage.setItem("isLoginFlag", JSON.stringify(true));
+          					//跳转到数据页面
+          					location.href="../data/data.html";
           					break;
           				case 1:
           					console.log("[login] 邮箱账号错误");
