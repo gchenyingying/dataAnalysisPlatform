@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<el-button type="info" icon="el-icon-error" size="small" circle v-on:click="loginChange"></el-button>
+		<el-button type="primary" icon="el-icon-error" size="small" circle v-on:click="loginChange"></el-button>
 		<span>{{ login }}</span>
 	</div>
 </template>

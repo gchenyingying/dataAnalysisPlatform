@@ -1,10 +1,10 @@
 <template>
   <div id="app">
-  	<el-row >
-  		  <el-col :span="12">
-  		  	<navMenu></navMenu>
+  	<el-row>
+  		  <el-col :span="24">
+  		  	<navMenu class="navMenu"></navMenu>
   		  </el-col>
-  			<el-col :span="12" class="statusBar">
+  			<el-col class="statusBar">
   				<statusBar v-bind:login="login"></statusBar>
   			</el-col>
   	</el-row>
@@ -40,6 +40,7 @@ export default {
 	position: fixed;
 	top:0px;
 	width:100%;
+  z-index:3;
 }
 .statusBar{
 	width: 30%;
@@ -51,11 +52,10 @@ export default {
   font-size: 14px;
   color: #909399;
 }
-/*.navMenu{
-	position: fixed;
-	top:0px;
-	width: 60%;
+.navMenu{
+	width: 100%;
 }
+/*
 .statusBar{
 	width:40%;
 	position:fixed;
@@ -65,6 +65,5 @@ export default {
 
 .container{
 	margin-top: 70px;
-	height:1000px;
 }
 </style>
