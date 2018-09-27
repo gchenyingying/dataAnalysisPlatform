@@ -57,10 +57,10 @@ function ajax(options){
 	timerId=setTimeout(function(){
 		console.log("超时开始");
 		timeoutFlag=true;
-		xhr.abort();	
 		if((typeof options.timeout)=="function")
 			options.timeout();
 		console.log("超时结束");
+		xhr.abort();	
 	}, options.waitTime);
 	xhr.open(options.method, url, true);	
 	xhr.setRequestHeader("If-Modified-Since","0");

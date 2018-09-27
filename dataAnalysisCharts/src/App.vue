@@ -65,5 +65,14 @@ export default {
 
 .container{
 	margin-top: 70px;
+	position: absolute;
+	top:0;
+	bottom:0;
+	width:100%;
+	height: auto;
+	z-index: -1;
+}
+html, body{
+	margin:0;
 }
 </style>

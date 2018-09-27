@@ -17,40 +17,40 @@ export default {
   data:function(){
   	return {
   		pageView:{
-  			//¶¨Òå¶ÔÏó£¬·½±ãºóĞøÀ©Õ¹
+  			//å®šä¹‰å¯¹è±¡ï¼Œæ–¹ä¾¿åç»­æ‰©å±•
   			data:[],
-  			text:"Ò³Ãæä¯ÀÀÁ¿"
+  			text:"é¡µé¢æµè§ˆé‡"
   		},
   		webSession:{
   			data:[],
-  			text:"ÍøÕ¾·ÃÎÊÁ¿"
+  			text:"ç½‘ç«™è®¿é—®é‡"
   		},
   		uniqueVisitor:{
   			data:[],
-  			text:"·ÃÎÊÓÃ»§Á¿"
+  			text:"è®¿é—®ç”¨æˆ·é‡"
   		},
   		landingPageSession:{
   			data:[],
-  			text:"½øÈëÁ¿"
+  			text:"è¿›å…¥é‡"
   		},
   		firstUniqueVisitor:{
   			data:[],
-  			text:"ĞÂ·ÃÎÊÓÃ»§Á¿"
+  			text:"æ–°è®¿é—®ç”¨æˆ·é‡"
   		},
   		time:[],
-  		//wsÊÇ·ñ´¦ÓÚopen×´Ì¬£¬true-open false-message
-  		//ÉèÖÃÎªtrue£¬½ÓÊÕµ½ĞÂÊı¾İ£¬³åË¢ÕûÌådataÊı×é
-  		//ÉèÖÃÎªfalse£¬½ÓÊÕµ½ĞÂÊı¾İ£¬pushµ½dataÊı×é
+  		//wsæ˜¯å¦å¤„äºopençŠ¶æ€ï¼Œtrue-open false-message
+  		//è®¾ç½®ä¸ºtrueï¼Œæ¥æ”¶åˆ°æ–°æ•°æ®ï¼Œå†²åˆ·æ•´ä½“dataæ•°ç»„
+  		//è®¾ç½®ä¸ºfalseï¼Œæ¥æ”¶åˆ°æ–°æ•°æ®ï¼Œpushåˆ°dataæ•°ç»„
   		wsInitialFlag:false,
   		subtext:""
   	};
   },
   methods:{
   	getTodayTimeInterval:function(){
-  		//»ñÈ¡Ä¬ÈÏÊ±¼äÇø¼ä
-		//»ñÈ¡µ±ÌìDate
+  		//è·å–é»˜è®¤æ—¶é—´åŒºé—´
+		//è·å–å½“å¤©Date
 		let now = new Date();
-		//»ñÈ¡µ±Ìì0µã0·ÖºÁÃëÊı
+		//è·å–å½“å¤©0ç‚¹0åˆ†æ¯«ç§’æ•°
 		let base = +new Date(now.getFullYear(), now.getMonth(), now.getDate());
 		const oneMinute = 60*1000;
 		const minPerDay = 24*60;
@@ -65,7 +65,7 @@ export default {
 		}
 		return date;
   	},
-  	//»ñÈ¡µ±ÌìÈÕÆÚ
+  	//è·å–å½“å¤©æ—¥æœŸ
   	getTodayDate:function(){
   		let now = new Date();
   		let date=[now.getFullYear(), now.getMonth() + 1, now.getDate()].join('/');
@@ -84,7 +84,7 @@ export default {
   	options.autoConnect=true;
   	options.open=function(){
   		console.log("open");
-  		//wsÁ¬½ÓÒÑ´ò¿ª£¬×¼±¸½ÓÊÕ³õÊ¼Êı¾İ
+  		//wsè¿æ¥å·²æ‰“å¼€ï¼Œå‡†å¤‡æ¥æ”¶åˆå§‹æ•°æ®
   		self.wsInitialFlag=true;
   		//console.log("wsInitialFlag"+self.wsInitialFlag);
   	};
@@ -94,10 +94,10 @@ export default {
   		//console.log(data);
   		const chartName=["pageView", "webSession", "uniqueVisitor", 
   			"landingPageSession", "firstUniqueVisitor"];
-  		//ws³õÊ¼×´Ì¬£¬´¦Àí³õÊ¼Êı¾İ
+  		//wsåˆå§‹çŠ¶æ€ï¼Œå¤„ç†åˆå§‹æ•°æ®
   		if(self.wsInitialFlag){
-  			console.log("³õÊ¼×´Ì¬OPEN½ÓÊÕÊı¾İ");
-  			//Á¬½Ó¹ı³ÌÖĞ£¬Ö±½Ópushµ½Êı×é
+  			console.log("åˆå§‹çŠ¶æ€OPENæ¥æ”¶æ•°æ®");
+  			//è¿æ¥è¿‡ç¨‹ä¸­ï¼Œç›´æ¥pushåˆ°æ•°ç»„
   			self.wsInitialFlag=false;
   			
   			chartName.forEach(function(item, index, array){
@@ -106,8 +106,8 @@ export default {
   			});
   			
   		}else{
-  			console.log("message×´Ì¬½ÓÊÕÊı¾İ");
-  			//wsÁ¬½ÓÖĞ£¬ÍÆÈëÊı¾İ
+  			console.log("messageçŠ¶æ€æ¥æ”¶æ•°æ®");
+  			//wsè¿æ¥ä¸­ï¼Œæ¨å…¥æ•°æ®
   			chartName.forEach(function(item, index, array){
   				self[item].data.push(data[item]);
   				//console.log(self[item].data);
@@ -116,14 +116,15 @@ export default {
   		}
   		
   	};
-  	//2sÖØÁ¬Ò»´Î
+  	//2sé‡è¿ä¸€æ¬¡
   	ws.setReconnectInterval(2000);
-  	//1min¼ì²âÒ»´Î
+  	//1minæ£€æµ‹ä¸€æ¬¡
   	ws.setHeartBeatsInterval(60000);
-  	//´ò¿ªwebsocket
+  	//æ‰“å¼€websocket
   	ws.openWebSocket(options);
   },
   destroyed:function(){
+  	console.log("destroyed");
   	ws.closeWebSocket();
   },
   components: {

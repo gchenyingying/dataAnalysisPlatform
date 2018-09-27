@@ -1,0 +1,32 @@
+概览板，用于展示当日通用数据量，包括“页面浏览量”/“网站访问量”/“访问用户量”/“进入量”/“新访问用户量”
+
+具体流程：
+1.采用websoket实时推送后台数据	
+打开页面，建立websocket连接；
+心跳机制，自动检测连接状态，异常断开连接后，自动重连；
+打开websoket连接时（包括重连过程中的open），后台发送当日已采集的全部数据，按照1min单位，划分数据；
+连接打开之后，后台间隔1min，发送一次数据，表明该时刻的相关数据量。
+
+示例
+6月6日00：30，后台接收到websoket open请求，则抽取30个数据，1min一个数据，发送给前端；连接建立之后，每隔1min，发送一个数据
+
+
+服务器推送数据结构 JSON
+
+websocket打开//每一个元素，采用数组存储，因为，打开连接时，会存在多个数据
+{
+	pageView:[]，//页面浏览量，总共访问多少个页面
+	webSession：[]，//网站访问量，总共访问多少次网站
+	uniqueVisitor：[]，//访问用户量，总共多少用户访问网站
+	landingPageSession：[]，//进入量，总共访问多少次落地页
+	firstUniqueVisitor：[]//新访问用户量，总共多少新用户访问，新用户需要按照业务定义，比如，3个月未登录的guid，也被认为是新用户
+}
+
+websocket打开后//连接持续过程，每1min发送一次数据
+{
+	pageView:Number，//页面浏览量
+	webSession：Number，//网站访问量
+	uniqueVisitor：Number，//访问用户量
+	landingPageSession：Number，//进入量
+	firstUniqueVisitor：Number//新访问用户量
+}

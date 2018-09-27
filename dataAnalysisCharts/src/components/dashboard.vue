@@ -11,6 +11,12 @@ export default {
   	return {
   		message:"hello dashboard"
   	};
+  },
+  created:function(){
+  	console.log("created");
+  },
+  mounted:function(){
+  	console.log("mounted");
   }
 }
 </script>

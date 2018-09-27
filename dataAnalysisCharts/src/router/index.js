@@ -9,6 +9,8 @@ import eventAnalyze from '@/components/eventAnalyze';
 import funnelAnalyze from '@/components/funnelAnalyze';
 import retainAnalyze from '@/components/retainAnalyze';
 import auAnalyze from '@/components/auAnalyze';
+import usrGroup from '@/components/usrGroup';
+import usrDetails from '@/components/usrDetails';
 
 Vue.use(Router)
 
@@ -57,6 +59,16 @@ let router = new Router({
       path: '/analyze/au',
       name: 'auAnalyze',
       component: auAnalyze 	
+		},
+		{
+      path: '/usr/usrGroup',
+      name: 'usrGroup',
+      component: usrGroup 	
+		},	
+		{
+      path: '/usr/usrDetails',
+      name: 'usrDetails',
+      component: usrDetails 	
 		}
   ]
 });

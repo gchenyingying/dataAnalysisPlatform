@@ -10,6 +10,7 @@
     let reconnectInterval=2000;
     //心跳间隔，默认值60s
     let heartBeatsInteval=60000;
+    let reconnTimeId=null;
     
     //options: url-目标地址 autoConnect-是否启动自动重连
     //open-onopen回调函数 message-onmessage回调函数 close-onclose回调函数 error-onerror回调函数
@@ -19,10 +20,12 @@
         	autoConnect=options.autoConnect;
         	//无法建立websocket连接时，WebSocket抛出异常
             ws = new WebSocket(options.url);
+            console.log(ws);
             initEventHandle(options);
             //成功连接还原lockReconnect状态，允许后续重连
             lockReconnect=false;
         } catch (e) {
+        	console.log(ws);
         	//还原lockReconnect状态，允许后续重连
         	lockReconnect=false;
         	//是否自动重连
@@ -33,12 +36,15 @@
     function initEventHandle(options) {
         ws.onclose = function () {
         	console.log("进入close阶段");
+        	console.log(autoConnect);
         	//执行close回调函数
         	(typeof options.close=="function")? options.close():'';
         	//启用自动重连
         	autoConnect?reconnect(options):console.log("关闭websocket");        
         };
         ws.onerror = function () {
+        	console.log("进入error阶段");
+        	console.log(autoConnect);
         	//执行error回调函数
         	(typeof options.error=="function")? options.error():'';
         	//启用自动重连
@@ -52,8 +58,13 @@
         };
         ws.onmessage = function (event) {
         	let data=JSON.parse(event.data);
-        	//执行message回调函数
-        	options.message(data);         	
+        	//执行message回调函数，检测心跳
+        	if(data !="HeartBeat")
+        	{
+        		options.message(data);  
+        	}else{
+        		console.log("连接持续中");
+        	}
             //如果获取到消息，心跳检测重置
             //拿到任何消息都说明当前连接是正常的
             autoConnect?heartCheck.reset().start():console.log("非自动重连模式");
@@ -71,7 +82,7 @@
         //多次连接直至成功，设置延迟避免请求过多
         //默认2s重连一次
         console.log("执行重连");
-        setTimeout(function () {
+        reconnTimeId=setTimeout(function () {
             createWebSocket(options);
             //lockReconnect = false;
         }, reconnectInterval);
@@ -82,8 +93,14 @@
 	}
     
     function closeWebSocket(){
+    	console.log("closeWebSocket");
     	autoConnect=false;
-    	ws.close();
+    	clearTimeout(reconnTimeId);
+    	console.log(autoConnect);
+    	if(ws.readyState == 1)
+    	{
+    		ws.close();
+    	}   	
     }
     //心跳检测 ms
     //必须createWs之前调用，否则无效
