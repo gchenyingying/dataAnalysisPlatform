@@ -28,7 +28,7 @@ JSON方式
 		usrId:String,//guid
 		accessCount:Number,//最近30天访问次数
 		accessLocation：String,//最近30天访问地点
-		lastAccessDate：String//上次访问时间
+		lastAccessDate：String//上次访问时间，后续可更改为ms
 	}
 }
 

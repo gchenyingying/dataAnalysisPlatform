@@ -11,6 +11,7 @@ import retainAnalyze from '@/components/retainAnalyze';
 import auAnalyze from '@/components/auAnalyze';
 import usrGroup from '@/components/usrGroup';
 import usrDetails from '@/components/usrDetails';
+import createUsrGroup from '@/components/createUsrGroup';
 
 Vue.use(Router)
 
@@ -69,6 +70,11 @@ let router = new Router({
       path: '/usr/usrDetails',
       name: 'usrDetails',
       component: usrDetails 	
+		},
+		{
+      path: '/usr/createUsrGroup',
+      name: 'createUsrGroup',
+      component: createUsrGroup 	
 		}
   ]
 });

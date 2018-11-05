@@ -2,7 +2,9 @@
 	<div >
 		<tableList v-bind:list="usrListData"></tableList>
 		<div class="usrList">
-			<emptyInfo v-if="emptyFlag"></emptyInfo>
+			<emptyInfo v-if="emptyFlag">
+				建议等待一段时间，稍后点击浏览器刷新按钮重试
+			</emptyInfo>
 			<el-button size="small" v-bind:loading="loading" v-on:click="loadMoreUsr" v-else>加载更多</el-button>
 		</div>
 	</div>

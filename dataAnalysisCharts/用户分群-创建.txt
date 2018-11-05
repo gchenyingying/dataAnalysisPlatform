@@ -1,0 +1,54 @@
+
+创建用户分群
+1.按照具体维度的取值，划分为逻辑与AND/逻辑或OR操作，形如，
+(A1 || A2 || A3 ||...) && (B1 || B2 || B3 ||...) && ...
+2.分群，即“选择一组维度值的逻辑表达式”，使用该表达式，筛选符合条件的用户
+3.分群的基本点，目前仅采用维度值，后续可增加操作次数等，比如，点击某功能7次
+的用户
+
+创建分群功能
+1.实时获取维度值
+2.提交分群到服务器
+
+数据API
+
+1.获取维度值
+
+发送数据结构
+{
+	dimensionName://Number,维度名称 0-地区 1-操作系统 2-操作系统版本 3-浏览器 4-浏览器版本
+}
+
+接收数据结构
+//根据维度名称，后台服务器实时查询该数据，可变化，服务器自身定义label/Value
+{
+	option: [{
+			label:"北京"，
+			value:0
+		},{
+			label:"上海",
+			value：1
+		}]//label-维度名字符串取值 value-对应的数值
+}
+
+2.保存分群
+
+发送数据结构
+{
+	groupName:String,用户输入的分群名称，需服务器保存，用于后续索引分群
+
+	//二维数组，外层数组，outter[i],每一个outter元素代表一个AND操作数, (A1||A2||A3...)整体作为AND操作数
+	//每一个outter[i]元素，是一个数组inner，inner[i]代表一个OR操作数，Ai作为一个OR操作数
+	//筛选描述--满足A1或者A2或者A3...,同时，满足B1或者B2或者B3...
+	andOrData：[[
+			dimensionName://Number,维度名称 0-地区 1-操作系统 2-操作系统版本 3-浏览器 4-浏览器版本
+			operator://Number，操作符 0-等于 1-不等于 2-筛选范围内 3-不在筛选范围内
+			mFlag：//boolean，true-多选 false-单选
+			dimensionValue：//mFlag=false,Number类型；mFlag=true,Array类型；具体取值，采用后台定义维度值，同“获取维度值”的“接收数据结构”的value
+					//比如，[{ label:"北京"，value:0},{ label:"上海"，value:1}],mFlag=false，Number类型，选定北京，则dimensionValue=0；
+					//mFlag=true，Array类型，选定北京，则dimensionValue=[0],选定北京 上海，则dimensionValue=[0,1]
+			
+			dateFilter:[start,end]//Array，指定时间过滤器，元素0为过滤器开始时间，元素1为过滤器终止时间，取值均为ms数
+		    ],
+		    [],...]
+}
