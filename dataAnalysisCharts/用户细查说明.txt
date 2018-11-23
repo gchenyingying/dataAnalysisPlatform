@@ -1,4 +1,4 @@
-用户细查，获取当日的用户列表。
+用户细查，获取当日访问的用户列表。
 
 具体流程：
 1.按需获取数据
@@ -12,8 +12,11 @@
 
 JSON方式
 
+//获取某个分群的当日用户访问列表
+//如果是全部的当日用户访问列表，groupName=="mainList"
 请求体
 {
+	groupName：String //分群名称，不分群默认为"mainList"
 	usrSequenceRange:{
 		start:Number,//请求数据的开始序号，首次加载，取值1
 		count：Number //本次请求数据的条数，取值100；服务器一次最多抽取100条，不足100条按实际数目发送
@@ -27,9 +30,10 @@ JSON方式
 	list:{
 		usrId:String,//guid
 		accessCount:Number,//最近30天访问次数
-		accessLocation：String,//最近30天访问地点
+		accessLocation：String,//上次访问地点
 		lastAccessDate：String//上次访问时间，后续可更改为ms
 	}
 }
 
-
+update:2018/11/23
+增加请求体的分群名称groupName

@@ -12,6 +12,7 @@ import auAnalyze from '@/components/auAnalyze';
 import usrGroup from '@/components/usrGroup';
 import usrDetails from '@/components/usrDetails';
 import createUsrGroup from '@/components/createUsrGroup';
+import usrDescription from '@/components/usrDescription';
 
 Vue.use(Router)
 
@@ -67,14 +68,21 @@ let router = new Router({
       component: usrGroup 	
 		},	
 		{
-      path: '/usr/usrDetails',
+      path: '/usr/usrDetails/:groupName',
       name: 'usrDetails',
-      component: usrDetails 	
+      component: usrDetails,
+      props:true
 		},
 		{
       path: '/usr/createUsrGroup',
       name: 'createUsrGroup',
       component: createUsrGroup 	
+		},
+		{
+      path: '/usr/description/:groupName/:usrId',
+      name: 'usrDescription',
+      component: usrDescription,
+      props:true
 		}
   ]
 });

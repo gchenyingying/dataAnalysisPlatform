@@ -1,6 +1,6 @@
 <template>
 	<div >
-		<tableList v-bind:list="usrListData"></tableList>
+		<tableList v-bind:list="usrListData" v-bind:groupName="groupName"></tableList>
 		<div class="usrList">
 			<emptyInfo v-if="emptyFlag">
 				建议等待一段时间，稍后点击浏览器刷新按钮重试
@@ -26,7 +26,7 @@
   				loading:false
   			};
   		},
-  		props:["usrListData","emptyFlag"],
+  		props:["usrListData","emptyFlag","groupName"],
   		created:function(){
   			console.log(this.usrListData);
   			console.log((this.usrListData) instanceof Array);
@@ -45,6 +45,7 @@
 					method:"post",
 					url:"/testUsrDetails2",//for testing
 					data:{
+						groupName:this.groupName,//mainList-主用户列表 其他-分群用户列表
 						usrSequenceRange:this.usrSequenceRange//抽取用户ID的序号范围
 					},
 					//查询到有效数据后，返回一个数组

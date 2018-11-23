@@ -2,7 +2,10 @@
 	<el-table :data="list" style="width: 90%" stripe class="table">
     	<el-table-column type="index" width="50" label="序号">
     	</el-table-column>
-    	<el-table-column prop="usrId" label="用户ID" >
+    	<el-table-column label="用户ID" >    		
+    		<template slot-scope="scope">
+				<router-link :to="{ path: `/usr/description/${groupName}/${list[scope.$index].usrId}` }">{{list[scope.$index].usrId}}</router-link>
+    		</template>    		
     	</el-table-column>
     	<el-table-column prop="accessCount" label="最近30天访问次数" width="150">
     	</el-table-column>
@@ -16,7 +19,7 @@
 <script>
 export default {
   name: 'tableList',
-  props:["list"]
+  props:["list","groupName"]
 }	
 </script>
 

@@ -1,7 +1,11 @@
 <template>
 	<div v-loading="loading" element-loading-text="加载中" element-loading-spinner="el-icon-loading"
     	element-loading-background="rgba(0, 0, 0, 0.8)">
-		<usrList  v-if="availableUsrList" v-bind:usrListData="usrListData" v-bind:emptyFlag="emptyFlag"></usrList>
+		<usrList  v-if="availableUsrList" 
+			v-bind:usrListData="usrListData" 
+			v-bind:emptyFlag="emptyFlag" 
+			v-bind:groupName="groupName">
+		</usrList>
 		<errorInfo v-if="errorFlag"></errorInfo>
 	</div>
 </template>
@@ -31,6 +35,7 @@ export default {
   		usrListData:[]
   	};
   },
+  props:["groupName"],
   //可访问VUE实例
   created:function(){
   	this.fetch();
@@ -51,9 +56,11 @@ export default {
 				method:"post",
 				url:"/testUsrDetails1",//for testing
 				data:{
+					groupName:this.groupName,//mainList-主用户列表 其他-分群用户列表
 					usrSequenceRange:this.usrSequenceRange//抽取用户ID的序号范围
 				},
 				success:(data)=>{
+					console.log("列表数据", data);
 					//status true-有效数据 false-无有效数据
 					//list 有效数据的数组
 					if(data.status==true)

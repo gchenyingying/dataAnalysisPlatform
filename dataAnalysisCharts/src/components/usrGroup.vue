@@ -1,5 +1,5 @@
 <template>
-	<div v-loading="loading" element-loading-text="¼ÓÔØÖĞ" element-loading-spinner="el-icon-loading"
+	<div v-loading="loading" element-loading-text="åŠ è½½ä¸­" element-loading-spinner="el-icon-loading"
     	element-loading-background="rgba(0, 0, 0, 0.8)">
 		<usrGroupList class="usrGroupList" v-if="availableUsrGroupList" v-bind:usrGroupListData="usrGroupListData" v-bind:emptyFlag="emptyFlag">
 		</usrGroupList>
@@ -23,15 +23,15 @@ export default {
   		availableUsrGroupList:false,
   		errorFlag:false,
   		emptyFlag:false,
-  		//½ÓÊÜµ½µÄÓÃ»§ÁĞ±íÊı¾İ£¬·ÖÈºÊı¾İ²»´æÔÚÌ«¶àÌõÄ¿£¬Ò»´ÎĞÔ»ñÈ¡
+  		//æ¥å—åˆ°çš„ç”¨æˆ·åˆ—è¡¨æ•°æ®ï¼Œåˆ†ç¾¤æ•°æ®ä¸å­˜åœ¨å¤ªå¤šæ¡ç›®ï¼Œä¸€æ¬¡æ€§è·å–
   		usrGroupListData:[]
   	};
   },
-  //¿É·ÃÎÊVUEÊµÀı
+  //å¯è®¿é—®VUEå®ä¾‹
   created:function(){
   	this.fetch();
   },
-  //Ä³ÀàÂ·ÓÉÇĞ»»ÖĞ£¬»òĞí´æÔÚ×é¼ş¸´ÓÃµÄÇé¿ö£¬¼´ÏàÍ¬×é¼şÀàĞÍ
+  //æŸç±»è·¯ç”±åˆ‡æ¢ä¸­ï¼Œæˆ–è®¸å­˜åœ¨ç»„ä»¶å¤ç”¨çš„æƒ…å†µï¼Œå³ç›¸åŒç»„ä»¶ç±»å‹
   watch:{
   	$route:function(){
   		this.fetch();
@@ -39,15 +39,16 @@ export default {
   },
   methods:{
   	fetch:function(){
-  		//µÈ´ıÖĞ
+  		//ç­‰å¾…ä¸­
   		this.loading=true;
   		
   		const options={  			
 				method:"post",
 				url:"/testUsrGroup",//for testing
 				success:(data)=>{
-					//status true-ÓĞĞ§Êı¾İ false-ÎŞÓĞĞ§Êı¾İ
-					//list ÓĞĞ§Êı¾İµÄÊı×é
+					console.log("åˆ†ç»„æ•°æ®",data);
+					//status true-æœ‰æ•ˆæ•°æ® false-æ— æœ‰æ•ˆæ•°æ®
+					//list æœ‰æ•ˆæ•°æ®çš„æ•°ç»„
 					if(data.status==true)
 					{						
 						data.list.forEach(function(item,index,array){
@@ -60,22 +61,22 @@ export default {
 						this.emptyFlag=true;
 					}
 					
-					//ÆôÓÃÓÃ»§ÁĞ±í
+					//å¯ç”¨ç”¨æˆ·åˆ—è¡¨
 					this.availableUsrGroupList=true;
-					//½â³ıµÈ´ı
+					//è§£é™¤ç­‰å¾…
 					this.loading=false;
 				},
 				fail:()=>{
 					console.log("ajax fail");
-					//ÆôÓÃ´íÎó×é¼ş
+					//å¯ç”¨é”™è¯¯ç»„ä»¶
 					this.errorFlag=true;
-					//½â³ıµÈ´ı
+					//è§£é™¤ç­‰å¾…
 					this.loading=false;											
 				},
 				timeout:()=>{
-					//ÆôÓÃ´íÎó×é¼ş
+					//å¯ç”¨é”™è¯¯ç»„ä»¶
 					this.errorFlag=true;
-					//½â³ıµÈ´ı
+					//è§£é™¤ç­‰å¾…
 					this.loading=false;							
 				},
 				waitTime:5000			

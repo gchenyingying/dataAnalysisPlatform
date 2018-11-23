@@ -3,7 +3,10 @@
 	<el-table :data="list" stripe>
     	<el-table-column type="index" width="50" label="序号">
     	</el-table-column>
-    	<el-table-column prop="usrGroupName" label="分群名称" >
+    	<el-table-column label="分群名称">
+    		<template slot-scope="scope">
+				<router-link :to="{ path: `/usr/usrDetails/${list[scope.$index].usrGroupName}` }">{{ list[scope.$index].usrGroupName }}</router-link>
+    		</template>
     	</el-table-column>
     	<el-table-column prop="usrCount" label="分群人数" width="200">
     	</el-table-column>

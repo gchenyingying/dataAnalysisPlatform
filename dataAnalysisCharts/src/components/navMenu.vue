@@ -15,7 +15,7 @@
   		<el-submenu index="/usr">
     		<template slot="title">用户</template>
     		<el-menu-item index="/usr/usrGroup">用户分群</el-menu-item>
-    		<el-menu-item index="/usr/usrDetails">用户细查</el-menu-item>
+    		<el-menu-item index="/usr/usrDetails/mainList">用户细查</el-menu-item>
   		</el-submenu>
   		<el-menu-item index="/dataManage">数据管理</el-menu-item> 
 	</el-menu>
