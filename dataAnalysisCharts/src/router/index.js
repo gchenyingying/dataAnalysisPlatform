@@ -1,6 +1,20 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import ajax from '../ajax/ajax';
+const home = () => import('@/components/home');
+const dashboard = () => import('@/components/dashboard');
+const singleChart = () => import('@/components/singleChart');
+const dataManage = () => import('@/components/dataManage');
+const eventAnalyze = () => import('@/components/eventAnalyze');
+const funnelAnalyze = () => import('@/components/funnelAnalyze');
+const retainAnalyze = () => import('@/components/retainAnalyze');
+const auAnalyze = () => import('@/components/auAnalyze');
+const usrGroup = () => import('@/components/usrGroup');
+const usrDetails = () => import('@/components/usrDetails');
+const createUsrGroup = () => import('@/components/createUsrGroup');
+const usrDescription = () => import('@/components/usrDescription');
+
+/*
 import home from '@/components/home';
 import dashboard from '@/components/dashboard';
 import singleChart from '@/components/singleChart';
@@ -13,6 +27,7 @@ import usrGroup from '@/components/usrGroup';
 import usrDetails from '@/components/usrDetails';
 import createUsrGroup from '@/components/createUsrGroup';
 import usrDescription from '@/components/usrDescription';
+*/
 
 Vue.use(Router)
 

@@ -1,6 +1,5 @@
 <template>
-	<div v-loading="loading" element-loading-text="加载中" element-loading-spinner="el-icon-loading"
-    	element-loading-background="rgba(0, 0, 0, 0.8)">
+	<div v-loading="loading" element-loading-text="加载中">
 		<usrGroupList class="usrGroupList" v-if="availableUsrGroupList" v-bind:usrGroupListData="usrGroupListData" v-bind:emptyFlag="emptyFlag">
 		</usrGroupList>
 		<errorInfo v-if="errorFlag"></errorInfo>
@@ -92,6 +91,5 @@ export default {
 <style>
 	.usrGroupList{
 		margin: 0 auto;
-		width:90%;
 	}
 </style>

@@ -1,5 +1,5 @@
 <template>
-	<el-table :data="list" style="width: 90%" stripe class="table">
+	<el-table :data="list" stripe class="table">
     	<el-table-column type="index" width="50" label="序号">
     	</el-table-column>
     	<el-table-column label="用户ID" >    		

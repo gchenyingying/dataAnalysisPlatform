@@ -1,11 +1,11 @@
 <template>
-<div class="layoutMiddle">
-	<el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
-  		<el-form-item label="邮箱" prop="mailBox">
+<div>
+	<el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-position="left" label-width="0px" class="demo-ruleForm">
+  		<el-form-item label="" prop="mailBox">
     		<el-input  placeholder="请输入邮箱账号" prefix-icon="el-icon-message" v-model="ruleForm.mailBox" auto-complete="on">
     		</el-input>
   		</el-form-item>
-  		<el-form-item label="密码" prop="password">
+  		<el-form-item label="" prop="password">
     		<el-input type="password" placeholder="请输入密码" prefix-icon="el-icon-edit"v-model="ruleForm.password" auto-complete="off">
     		</el-input>
   		</el-form-item>
@@ -104,22 +104,42 @@ export default {
           					break;
           				case 1:
           					console.log("[login] 邮箱账号错误");
+        					this.$alert('邮箱账号错误', '提示', {
+          						confirmButtonText: '确定',
+           						type: 'warning'
+       						});		
           					break;
           				case 2:
           					console.log("[login] 登录密码错误");
+          					this.$alert('登录密码错误', '提示', {
+          						confirmButtonText: '确定',
+           						type: 'warning'
+       						});	
           					break;
           				default:
           					console.log("[login] 服务器内部原因");
+          					this.$alert('服务器内部错误', '提示', {
+          						confirmButtonText: '确定',
+           						type: 'warning'
+       						});	
           			}
           		},
           		fail:(status,statusText)=>{
           			this.$refs[formName].disabled = false;
+          			this.$alert('网络错误', '提示', {
+          				confirmButtonText: '确定',
+           				type: 'warning'
+       				});	
           			console.log("[login] 网络出错，请重试");
           			console.log("[login] 错误码 "+status);
           			console.log("[login] 错误信息"+statusText);
           		},         		
           		timeout:()=>{
           			this.$refs[formName].disabled = false;
+          			this.$alert('网络超时', '提示', {
+          				confirmButtonText: '确定',
+           				type: 'warning'
+       				});	
           			console.log("[login] 网络超时，请重试");
           		},
           		waitTime:5000
@@ -136,12 +156,6 @@ export default {
 }
 </script>
 
-<style scoped>
-	.layoutMiddle{
-		width:400px;
-		height: auto;
-		margin:0 auto;
-		display: inline-block;
-		vertical-align: middle;
-	}
+<style>
+
 </style>

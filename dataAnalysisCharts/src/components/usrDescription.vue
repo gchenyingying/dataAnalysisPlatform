@@ -1,6 +1,5 @@
 <template>
-	<div v-loading="loading" element-loading-text="加载中" element-loading-spinner="el-icon-loading"
-    	element-loading-background="rgba(0, 0, 0, 0.8)">
+	<div v-loading="loading" element-loading-text="加载中">
 		<usrDescriptionContent class="usrDescriptionContent" 
 			v-if="availableUsrDescription" 
 			v-bind:usrDescriptionData="usrDescriptionData"
@@ -111,6 +110,5 @@ export default {
 <style scoped>
 	.usrDescriptionContent{
 		margin: 0 auto;
-		width:90%;
 	}
 </style>

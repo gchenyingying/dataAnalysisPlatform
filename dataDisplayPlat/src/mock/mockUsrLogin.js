@@ -1,6 +1,6 @@
 import Mock from "mockjs";
 
-//Mock.setup({timeout:10000});
+Mock.setup({timeout:2000});
 console.log("MOCK begin");
 Mock.mock(/testUsrLogin/,"post",{status:0});
 //Mock.mock(/testUsrLogin/,"get",{status:1});

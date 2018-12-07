@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+  	<div class="nav">
   	<el-row>
   		  <el-col :span="24">
   		  	<navMenu class="navMenu"></navMenu>
@@ -8,6 +9,7 @@
   				<statusBar v-bind:login="login"></statusBar>
   			</el-col>
   	</el-row>
+  	</div>
     <!--navMenu class="navMenu"></navMenu>
     <statusBar class="statusBar" v-bind:login="login"></statusBar-->
     <router-view class="container"/>
@@ -36,18 +38,26 @@ export default {
 #app {
 	width:100%;
 }
+.nav{
+	width: 100%; 
+	border-bottom: 1px solid rgb(230, 230, 230); 
+	height: 60px;
+	position:relative;
+}
 .el-row {
 	position: fixed;
 	top:0px;
-	width:100%;
+	left: 50%;
+	margin-left: -600px;
+	width:1200px;
   z-index:3;
 }
 .statusBar{
-	width: 30%;
+	width: 200px;
   position: absolute;
   top: 50%;
   margin-top: -16px;
-  left: 70%;
+  right:0px;
   float:none;
   font-size: 14px;
   color: #909399;
@@ -55,23 +65,22 @@ export default {
 .navMenu{
 	width: 100%;
 }
-/*
-.statusBar{
-	width:40%;
-	position:fixed;
-	top:0px;
-	left:60%;
-}*/
-
+.navMenu >>> .el-menu.el-menu--horizontal{
+	border-bottom: none;
+}
 .container{
+	width:1200px;
 	margin-top: 70px;
 	position: absolute;
 	top:0;
 	bottom:0;
-	width:100%;
+	left:50%;
+	margin-left: -600px;
 	height: auto;
 	z-index: -1;
 }
+</style>
+<style>
 html, body{
 	margin:0;
 }

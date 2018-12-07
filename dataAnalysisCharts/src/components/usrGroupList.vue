@@ -39,7 +39,6 @@
 <style scoped>
 	.usrGroupList{
 		margin: 0 auto;
-		width: 90%;
 	}
 	.emptyInfo{
 		text-align: center;

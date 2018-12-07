@@ -1,6 +1,5 @@
 <template>
-	<div v-loading="loading" element-loading-text="加载中" element-loading-spinner="el-icon-loading"
-    	element-loading-background="rgba(0, 0, 0, 0.8)">
+	<div v-loading="loading" element-loading-text="加载中">
 		<usrList  v-if="availableUsrList" 
 			v-bind:usrListData="usrListData" 
 			v-bind:emptyFlag="emptyFlag" 

@@ -569,7 +569,6 @@
 	}
 	.usrGroup{
 		margin: 0 auto;
-		width:90%;
 	}
 	.usrGroup>>> .el-date-editor--daterange.el-input__inner{
 		width: auto;

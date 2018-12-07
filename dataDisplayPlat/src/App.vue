@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <router-view/>
-    <span></span>
+    <router-view class="container"/>
+    <!--span></span-->
   </div>
 </template>
 
@@ -18,7 +18,14 @@ export default {
 		height:auto;
 		top:0px;
 		bottom:0px;
-		text-align: center;
 	}
-	span{height: 100%;width:1px;vertical-align: middle;display:inline-block;}
+	.container{
+		width:400px;
+		height: auto;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin-top: -76px;
+		margin-left: -200px;
+	}
 </style>

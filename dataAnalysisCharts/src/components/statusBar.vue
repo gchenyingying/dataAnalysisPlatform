@@ -1,7 +1,7 @@
 <template>
 	<div>
-		<el-button type="primary" icon="el-icon-error" size="small" circle v-on:click="loginChange"></el-button>
-		<span>{{ login }}</span>
+		<div style="float: right;height:32px;line-height: 32px;margin:auto 5px;">{{ login }}</div>
+		<el-button type="info" icon="el-icon-close" size="small" circle v-on:click="loginChange" style="float: right;"></el-button>
 	</div>
 </template>
 

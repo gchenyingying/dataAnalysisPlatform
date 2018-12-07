@@ -1,5 +1,5 @@
 <template>
-	<ul>
+	<ul style="padding: 0px;">
 		<li is="lineChart" class="charts" id="pageView" v-bind:subtext="subtext" v-bind:text="pageView.text" v-bind:data="pageView.data" v-bind:time="time"></li>
 		<li is="lineChart" class="charts" id="webSession" v-bind:subtext="subtext" v-bind:text="webSession.text" v-bind:data="webSession.data" v-bind:time="time"></li>
 		<li is="lineChart" class="charts" id="uniqueVisitor" v-bind:subtext="subtext" v-bind:text="uniqueVisitor.text" v-bind:data="uniqueVisitor.data" v-bind:time="time"></li>
@@ -135,8 +135,8 @@ export default {
 
 <style scoped>
 	.charts{
-		width:45%;
+		width:600px;
 		height: 300px;
-		display:inline-block;
+		float: left;
 	}
 </style>
