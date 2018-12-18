@@ -1,0 +1,70 @@
+数据管理
+针对域名网站，自定义相关指标，包括页面级别和事件级别
+
+数据结构
+1.获取应用列表消息体
+发送数据结构
+空
+
+接收数据结构
+{
+	status:Boolean //true-存在有效应用 false-未创建应用 
+	list:Array //元素为对象
+		  //对象结构{appId:String,lastModifyTime:String}
+}
+
+2.删除应用
+发送数据结构
+{
+	dataAppId:String //应用名称,对应1接收数据结构内的appId
+}
+
+接收数据结构
+{
+	status:Boolean //true-成功删除 false-未成功删除
+}
+
+3.获取已存在的单个应用的具体指标
+发送数据结构
+{
+	appId:String //应用名称，对应1接收数据结构内的appId
+}
+
+接收数据结构
+{
+	appId:String //应用名称，对应1接收数据结构内的appId
+  	domin:String //域名
+  	pageInfo:Array //页面指标对象数组,元素为页面指标对象，
+                       //如果不存在，发送[]
+  	eventInfo:Array//事件指标对象数组，元素为事件指标对象，
+                      //如果不存在，发送[]
+}
+事件指标对象结构
+{
+	name:String,//指标名称
+   	elementId:String,//元素ID
+        operation:Number,//采集操作,0-点击 1-修改 2-曝光量 3-包含点击   	       
+        url:String,//所属页面
+        enabled:Boolean//true-启用 false-禁用
+}
+页面指标对象结构
+{
+	name:String,//指标名称
+        operation:Number,//采集操作,0-浏览量
+  	url:String,//所属页面
+        enabled:Boolean//true-启用 false-禁用
+}
+
+4.保存应用-创建新应用或者修改已有应用，后台直接覆盖原有指标
+发送数据结构
+{
+	appData:Object //新创建或者修改的数据，结构同3接收数据结构
+}
+
+接受数据结构
+{
+	status:Boolean //true-成功保存 false-保存失败
+}
+
+遗留问题
+1.指标名称禁止重复，重复浏览器需报错

@@ -2,6 +2,7 @@
 	<div>
 		<el-form :model="dynamicValidateForm" :rules="rules"
 				status-icon ref="dynamicValidateForm" 
+				label-position="left"
 				label-width="30px" class="demo-dynamic demo-ruleForm usrGroup">
 			  		<!--el-form-item label="新建分群"-->
     					<el-button type="primary" @click="submitForm('dynamicValidateForm')" :loading="loading">保存</el-button>

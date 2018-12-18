@@ -13,6 +13,7 @@ const usrGroup = () => import('@/components/usrGroup');
 const usrDetails = () => import('@/components/usrDetails');
 const createUsrGroup = () => import('@/components/createUsrGroup');
 const usrDescription = () => import('@/components/usrDescription');
+const dataManageApp = () => import('@/components/dataManageApp');
 
 /*
 import home from '@/components/home';
@@ -98,6 +99,12 @@ let router = new Router({
       name: 'usrDescription',
       component: usrDescription,
       props:true
+		},
+		{
+      path: '/dataManageApp/:appId',
+      name: 'dataManageApp',
+      component: dataManageApp,
+      props:true			
 		}
   ]
 });
