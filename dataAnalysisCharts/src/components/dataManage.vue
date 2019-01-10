@@ -1,5 +1,5 @@
 <template>
-	<div v-loading="loading" element-loading-text="¼ÓÔØÖĞ">
+	<div v-loading="loading" element-loading-text="åŠ è½½ä¸­">
 		<dataAppList class="dataAppList" v-if="availableDataAppList" v-bind:dataAppListData="dataAppListData" v-bind:emptyFlag="emptyFlag">
 		</dataAppList>
 		<errorInfo v-if="errorFlag"></errorInfo>
@@ -22,15 +22,15 @@ export default {
   		availableDataAppList:false,
   		errorFlag:false,
   		emptyFlag:false,
-  		//½ÓÊÜµ½µÄAPPÁĞ±íÊı¾İ£¬APPÊı¾İ²»´æÔÚÌ«¶àÌõÄ¿£¬Ò»´ÎĞÔ»ñÈ¡
+  		//æ¥å—åˆ°çš„APPåˆ—è¡¨æ•°æ®ï¼ŒAPPæ•°æ®ä¸å­˜åœ¨å¤ªå¤šæ¡ç›®ï¼Œä¸€æ¬¡æ€§è·å–
   		dataAppListData:[]
   	};
   },
-  //¿É·ÃÎÊVUEÊµÀı
+  //å¯è®¿é—®VUEå®ä¾‹
   created:function(){
   	this.fetch();
   },
-  //Ä³ÀàÂ·ÓÉÇĞ»»ÖĞ£¬»òĞí´æÔÚ×é¼ş¸´ÓÃµÄÇé¿ö£¬¼´ÏàÍ¬×é¼şÀàĞÍ
+  //æŸç±»è·¯ç”±åˆ‡æ¢ä¸­ï¼Œæˆ–è®¸å­˜åœ¨ç»„ä»¶å¤ç”¨çš„æƒ…å†µï¼Œå³ç›¸åŒç»„ä»¶ç±»å‹
   watch:{
   	$route:function(){
   		this.fetch();
@@ -38,16 +38,16 @@ export default {
   },
   methods:{
   	fetch:function(){
-  		//µÈ´ıÖĞ
+  		//ç­‰å¾…ä¸­
   		this.loading=true;
   		
   		const options={  			
 				method:"post",
 				url:"/testDataApp",//for testing
 				success:(data)=>{
-					console.log("·Ö×éÊı¾İ",data);
-					//status true-ÓĞĞ§Êı¾İ false-ÎŞÓĞĞ§Êı¾İ
-					//list ÓĞĞ§Êı¾İµÄÊı×é
+					console.log("åˆ†ç»„æ•°æ®",data);
+					//status true-æœ‰æ•ˆæ•°æ® false-æ— æœ‰æ•ˆæ•°æ®
+					//list æœ‰æ•ˆæ•°æ®çš„æ•°ç»„
 					if(data.status==true)
 					{						
 						data.list.forEach(function(item,index,array){
@@ -60,22 +60,22 @@ export default {
 						this.emptyFlag=true;
 					}
 					
-					//ÆôÓÃÓÃ»§ÁĞ±í
+					//å¯ç”¨ç”¨æˆ·åˆ—è¡¨
 					this.availableDataAppList=true;
-					//½â³ıµÈ´ı
+					//è§£é™¤ç­‰å¾…
 					this.loading=false;
 				},
 				fail:()=>{
 					console.log("ajax fail");
-					//ÆôÓÃ´íÎó×é¼ş
+					//å¯ç”¨é”™è¯¯ç»„ä»¶
 					this.errorFlag=true;
-					//½â³ıµÈ´ı
+					//è§£é™¤ç­‰å¾…
 					this.loading=false;											
 				},
 				timeout:()=>{
-					//ÆôÓÃ´íÎó×é¼ş
+					//å¯ç”¨é”™è¯¯ç»„ä»¶
 					this.errorFlag=true;
-					//½â³ıµÈ´ı
+					//è§£é™¤ç­‰å¾…
 					this.loading=false;							
 				},
 				waitTime:5000			

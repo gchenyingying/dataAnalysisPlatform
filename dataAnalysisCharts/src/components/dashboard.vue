@@ -1,6 +1,7 @@
 <template>
 	<p>
 		{{message}}
+		<span class="iconfont icon-tubiao"></span>
 	</p>
 </template>
 

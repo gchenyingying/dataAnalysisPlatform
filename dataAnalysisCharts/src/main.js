@@ -5,8 +5,11 @@ import "./mock/mockUsrLogin";
 import "./mock/testUsrDetails";
 import "./mock/testCreateUsrGroup";
 import "./mock/testDataApp";
+import "./mock/testEventAnalyze";
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
+import './font/iconfont.css'
+
 import echarts from 'echarts' 
 
 Vue.config.productionTip = true;

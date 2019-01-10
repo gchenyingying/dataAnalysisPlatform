@@ -74,6 +74,7 @@ function ajax(options){
 			options.timeout();
 	}, options.waitTime);
 	*/
+	return xhr;
 }
 
 export default ajax;
